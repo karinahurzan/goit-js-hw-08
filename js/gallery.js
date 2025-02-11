@@ -87,18 +87,14 @@ function addPhoto(images) {
 
 addPhoto(images);
 
-document.querySelectorAll(".gallery-image").forEach((img) => {
-  img.addEventListener("click", (event) => {
-    event.preventDefault();
-  });
-});
-
 gallery.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG") {
+    event.preventDefault();
     const imageSrc = event.target.dataset.source;
+
     const instance = basicLightbox.create(`
-          <img src="${imageSrc}" alt="${event.target.alt}">
-      `);
+      <img src="${imageSrc}" alt="${event.target.alt}">
+    `);
 
     instance.show();
   }
