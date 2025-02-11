@@ -67,12 +67,11 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
+let markup = ``;
 function addPhoto(images) {
   for (const image of images) {
     const { preview, original, description: alt } = image;
-    gallery.insertAdjacentHTML(
-      "beforeend",
-      `<li class="gallery-item">
+    markup += `<li class="gallery-item">
         <a class="gallery-link" href="${original}">
           <img
             class="gallery-image"
@@ -81,9 +80,9 @@ function addPhoto(images) {
             alt="${alt}"
           />
         </a>
-      </li>`
-    );
+      </li>`;
   }
+  gallery.innerHTML = markup;
 }
 
 addPhoto(images);
